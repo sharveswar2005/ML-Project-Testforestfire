@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Exam Performance Predictor</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f2f6ff;
+            --accent: #2563eb;
+            --accent2: #0ea5a2;
+            --text-dark: #0f172a;
+            --text-muted: #6b7280;
+            --radius: 14px;
+            --shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(180deg, #eef2ff, #ffffff);
+            color: var(--text-dark);
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 26px;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            margin-top: 25px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 15px;
+            max-width: 600px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .card {
+            margin-top: 40px;
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 700px;
+            box-shadow: var(--shadow);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            background: #f8faff;
+            border-radius: 14px;
+            padding: 18px;
+            border: 1px solid #e5ecff;
+        }
+
+        .feature-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .feature-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .start-btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 26px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.18);
+            transition: transform 0.1s ease;
+        }
+
+        .start-btn:active {
+            transform: translateY(2px);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="logo">SP</div>
+
+        <h1>Student Exam Performance Predictor</h1>
+        <p class="subtitle">
+            A machine learning–powered tool that estimates Maths scores based on demographic and academic attributes.
+            Built for educators, analysts, and learning researchers.
+        </p>
+
+        <div class="card">
+            <h2 style="margin-top:0;">What this tool does</h2>
+            <div class="features">
+                <div class="feature-box">
+                    <div class="feature-title">🎯 Accurate Predictions</div>
+                    <div class="feature-text">Model trained on exam datasets to estimate Maths scores.</div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-title">⚡ Fast & Lightweight</div>
+                    <div class="feature-text">Get instant score predictions using optimized ML pipelines.</div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-title">📊 Easy to Use</div>
+                    <div class="feature-text">Simple step-by-step form for entering student details.</div>
+                </div>
+            </div>
+
+            <!-- CHANGE THIS to match your Flask route -->
+           <a href="{{ url_for('predict_datapoint') }}" class="start-btn">Start Prediction →</a>
+        </div>
+
+        <footer>
+            © {{ year|default(2025) }} Student Performance Prediction Tool • All rights reserved
+        </footer>
+    </section>
+</body>
+
+</html>
